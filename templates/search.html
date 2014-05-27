@@ -16,7 +16,7 @@
 					  <ul class="dropdown-menu">
 					    <li ng-repeat="term in inactiveFacets[0][facet.toString()].terms | filter:facetFilter" style="float:left;">
 					      <a  class="child" href="javascript:;" ng-click="selectFacet(term.term, facet, term.count)" >
-		            		<span class="value">{{ languages[term.term] || term.term }}</span>
+		            		<span class="value">{{ languages[term.term] || term.term }} ({{ term.count }})</span>
 						  </a>
 					    </li>
 					  </ul>
@@ -47,7 +47,7 @@
 			</div>
 
 	<!-- listing -->
-	<div id="listing_container" class="col-xs-12 col-sm-9 col-md-9">
+	<div id="listing_container" class="col-xs-12 col-sm-9 col-md-9 ">
 			<div id="active_facets" ng-show="enableFacets" ng-controller="facetsController">
 					 <!-- active facets -->
 		             <div ng-show="enableFacets" class="facets row">
@@ -91,10 +91,10 @@
 					<li class="snippet" ng-repeat="result in filtered = (results | filter:filterResults) ">
 						<span class="title"><a href="#/item/{{result.id}}_{{result.set}}">{{result.title}}</a></span>
 						<br> {{result.description}}
-						<br> <b><span class="hidden-xs">{{languages.keywords || 'Keywords'}}: </span></b>
+						<br> <b><span>{{languages.keywords || 'Keywords'}}: </span></b>
 							 <a ng-repeat="keys in result.keywords" href="#/educational/search/?q={{keys}}" >{{keys}}<span ng-show="$index != result.keywords.length-1">, </span></a>
 						<br ng-show="result.rights != undefined">
-							<b><span ng-show="result.rights != undefined" class="hidden-xs">{{languages.copyrights || 'Rights'}}: </span></b>
+							<b><span ng-show="result.rights != undefined">{{languages.copyrights || 'Rights'}}: </span></b>
 						 	<a ng-show="result.rights != undefined" href="{{result.rights}}" target=_blank > {{result.rights}} </a>
 						<br>
 						 	<a class="col-md-2 btn btn-sm btn-default view_more" href="#/item/{{result.id}}_{{result.set}}"> {{languages.view_more}} </a>

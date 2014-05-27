@@ -14,7 +14,8 @@ listing.controller("viewItemController", function($rootScope, $scope, $http, $lo
 	language_mapping['en'] = "English";
 
 	/*AKIF URL*/
-	$scope.akif = 'http://54.228.180.124:8080/search-api/v1/akif/';
+	/* $scope.akif = 'http://54.228.180.124:8080/search-api/v1/akif/'; */
+	$scope.akif = 'http://api.greenlearningnetwork.com/search-api/v1/akif/';
 	//$scope.item_resource_id = '';
 	$scope.item_resource_url = '';
 	$scope.user_id = 23;

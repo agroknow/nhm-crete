@@ -76,7 +76,7 @@
 		    			//i.e to add 'vocational' in contexts we split it -> &contexts=| |education
 		    			var parts = query_active_facets.split($scope.activeFacets[facet].facet+'=');
 		    			//i.e add new facet+',' and connect -> &contexts=| vocational, |education -> &contexts=vocational,education
-		    			query_active_facets = parts[0]+$scope.activeFacets[facet].facet+'='+$scope.activeFacets[facet].term+','+parts[1];
+		    			query_active_facets = parts[0]+$scope.activeFacets[facet].facet+'='+$scope.activeFacets[facet].term+'+AND+'+parts[1];
 		    		}
 		    		//else we create a new parent
 		    		else{
@@ -229,7 +229,7 @@
 		var temp = "";
 		var keys = [];
 		for(var k in thisJson.languageBlocks) keys.push(k);
-		console.log(thisJson);
+		/*console.log(thisJson); */
 
 		if(thisJson.languageBlocks[$scope.selectedLanguage]!=undefined && thisJson.languageBlocks[$scope.selectedLanguage].title!=undefined)
 		{
@@ -285,7 +285,6 @@
 
 			//RIGHTS
 			if(thisJson.rights.url !== undefined) {
-				console.log( thisJson.rights.url);
 				equals += '\ , "rights\" : \"' + thisJson.rights.url + '\"';
 			}
 

@@ -22,13 +22,13 @@
 			 <!--<li><span class="labels">{{languages.classification || 'Classification' }} : </span>
 				 <a ng-repeat="keys in item_classification"  href="#/educational/search/?q={{keys}}" >{{keys}}, </a>
 			 </li>-->
-			 <li ng-show="item_organization!=undefined" ><span class="labels">{{languages.organization || 'Organization' }}: </span> {{item_organization}} </li>
-			 <li ng-show="item_language!=undefined" ><span class="labels">{{languages.language || 'Language' }}: </span> {{item_language}} </li>
-			 <li ng-show="item_coverage!=undefined" ><span class="labels">{{languages.location || 'Location' }}: </span> {{item_coverage}}</li>
-			 <li ng-show="item_resource_types.length > 0" ><span class="labels">{{languages.learningResourceTypes || 'Resource Type' }}: </span> <span ng-repeat="types in item_resource_types">{{types}}<span ng-show="$index != item_resource_types.length-1">, </span> </span></li>
+			 <!-- <li ng-show="item_organization!=undefined" ><span class="labels">{{languages.organization || 'Organization' }}: </span> {{item_organization}} </li> -->
+			 <li ng-show="item_language!=undefined" ><span class="labels">{{languages.language || 'Language' }}: </span> {{languages[item_language] || item_language}} </li>
+			 <li ng-show="item_coverage!=undefined" ><span class="labels">{{languages.location || 'Location' }}: </span> {{languages[item_coverage] || item_coverage}}</li>
+			 <li ng-show="item_resource_types.length > 0" ><span class="labels">{{languages.learningResourceTypes || 'Resource Type' }}: </span> <span ng-repeat="types in item_resource_types">{{languages[types] || types}}<span ng-show="$index != item_resource_types.length-1">, </span> </span></li>
 
-			 <li ng-show="item_roles.length > 0" ><span class="labels">{{languages.key_audience || 'Key Audience' }}: </span> <span ng-repeat="roles in item_roles"> {{roles}}<span ng-show="$index != item_roles.length-1">, </span> </span></li>
-			 <li ng-show="item_context.length > 0" ><span class="labels">{{languages.context || 'Context' }}: </span> <span ng-repeat="context in item_context"> {{context}}<span ng-show="$index != item_context.length-1">, </span> </span></li>
+			 <li ng-show="item_roles.length > 0" ><span class="labels">{{languages.key_audience || 'Key Audience' }}: </span> <span ng-repeat="roles in item_roles"> {{languages[roles] || roles}}<span ng-show="$index != item_roles.length-1">, </span> </span></li>
+			 <li ng-show="item_context.length > 0" ><span class="labels">{{languages.context || 'Context' }}: </span> <span ng-repeat="context in item_context"> {{languages[context] || context}}<span ng-show="$index != item_context.length-1">, </span> </span></li>
 			 <li ng-show="item_rights!=undefined" ><span class="labels">{{languages.copyrights || 'Rights' }}: </span> <a href="{{item_rights}}" target=_blank > {{item_rights}}</a></li>
 			 <!-- <li><span class="labels">Age Range: </span> {{item_age_range}}</li> -->
 
